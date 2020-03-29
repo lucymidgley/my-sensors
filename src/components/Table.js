@@ -26,10 +26,10 @@ export default function Table({ columns, data }) {
    
   return (
     <>
-      <input
+      <input className="searchBox"
         value={filterInput}
         onChange={handleFilterChange}
-        placeholder={"Search name"}
+        placeholder="Search name"
       />
     <table {...getTableProps()}>
       <thead>

@@ -3,14 +3,29 @@
 .App {
   text-align: center;
 }
+.layout {
+  background-color: $blue4;
+  height: 100%
+}
+
+.searchBox {
+  border-radius: 0.5em;
+  padding: 1em;
+  position: relative;
+  top: 0.5em;
+  left: 1em;
+  color: $blue1;
+  font-size: 0.8em;
+}
 
 table {
   width: 90%;
   text-align: center;
   border-spacing: 0;
-  border: 1px solid green;
-  background-color: blue;
+  border-radius: 1em;
+  background-color: $blue2;
   margin: 1em;
+  color: $blue5;
   tr {
     :last-child {
       td {
@@ -22,10 +37,15 @@ table {
   td {
     margin: 0;
     padding: 1rem;
-    border-bottom: 1px solid red;
-    border-right: 1px solid red;
+    border-bottom: 1px solid $blue4;
+    border-right: 1px solid $blue4;
     :last-child {
-      border-right: 0;
+      border-right: none;
+      border-bottom: 1px solid red;
     }
   }
+}
+
+table tbody tr:last-child {
+  border-bottom: 1px solid red;
 }

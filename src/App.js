@@ -31,7 +31,9 @@ function App() {
 
 
   return (
+    <main className="layout">
       <Table columns={columns} data={data} />
+    </main>
   )
 }
 
