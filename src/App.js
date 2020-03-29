@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 import "./App.scss"
 import { data } from "./helpers/data-helpers"
-import Table from "./components/Table"
+import Nav from "./components/Nav"
+import AllSensors from "./components/AllSensors"
 
 
 
 function App() {
+  const [view, setView] = useState(1)
   const columns = React.useMemo(
     () => [
       {
@@ -31,9 +33,15 @@ function App() {
 
 
   return (
-    <main className="layout">
-      <Table columns={columns} data={data} />
+    <Fragment>
+      <Nav selected={view} setView={setView} />
+      <main className="layout">
+        {view === 1 && <AllSensors columns={columns} data={data} />}  
+        {view === 2 && <AllSensors columns={columns} data={data} />}  
+        {view === 3 && <AllSensors columns={columns} data={data} />}  
+        {view === 4 && <AllSensors columns={columns} data={data} />}  
     </main>
+    </Fragment>
   )
 }
 

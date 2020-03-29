@@ -1,11 +1,19 @@
 @import "./styles/variables.scss";
 
+
+.html{
+  min-height: 200vh
+}
 .App {
   text-align: center;
+  font-family: 'Roboto Condensed', sans-serif;;
 }
 .layout {
   background-color: $blue4;
-  height: 100%
+  min-height: 100%;
+  padding: 1em;
+  font-family: 'Roboto Condensed', sans-serif;
+  
 }
 
 .searchBox {
@@ -20,6 +28,7 @@
 
 table {
   width: 90%;
+  height: 80%;
   text-align: center;
   border-spacing: 0;
   border-radius: 1em;
