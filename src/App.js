@@ -1,12 +1,15 @@
 import React from 'react';
+import "./data/sensors.json"
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+const readings = require("./data/readings.json")
+const sensors = require("./data/sensors.json")
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -17,7 +20,9 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
+        </a> */}
+        {readings[0].time}
+        {sensors[0].name}
       </header>
     </div>
   );
