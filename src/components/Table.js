@@ -2,8 +2,14 @@ import React from 'react'
 import { useTable, useFilters, useSortBy  } from 'react-table'
 import "./Table.scss"
 
+/* 
+Column filter function:
+  displays the number of rows to search within before filtering
+  adds input search box to each column
+  uses react table's setFilter to find the corresponding data
+*/
 
-export function DefaultColumnFilter({
+function ColumnFilter({
   column: { filterValue, preFilteredRows, setFilter },
 }) {
   const count = preFilteredRows.length
@@ -12,7 +18,7 @@ export function DefaultColumnFilter({
     <input className='searchBox'
       value={filterValue || ''}
       onChange={e => {
-        setFilter(e.target.value || undefined) // Set undefined to remove the filter entirely
+        setFilter(e.target.value || undefined)
       }}
       placeholder={`Search ${count} records...`}
     />
@@ -22,19 +28,13 @@ export function DefaultColumnFilter({
 
 export default function Table({ columns, data}) {
   
-    const defaultSorted = {
-      id: "name",
-      desc: true
-    }
-
-
     const defaultColumn = React.useMemo(
       () => ({
-        // Let's set up our default Filter UI
-        Filter: DefaultColumnFilter,
+        Filter: ColumnFilter,
       }),
       []
     )
+
     const {
       getTableProps,
       getTableBodyProps,
@@ -50,13 +50,21 @@ export default function Table({ columns, data}) {
         sortBy: [{ id: 'name', desc: true }]
       },
       defaultColumn,
-      defaultSorted 
     },
     useFilters,
       useSortBy
       )
+
+      /*
+      Table template from react-table with: 
+         Search filter added to header 
+         Conditionally add 'desc' or 'asc' class to column if it is sorted
+         Added checkbox to toggle all columns on or off
+         Added checkbox to choose which columns should be shown 
+      */
   return (
     <>
+    {console.log(getTableBodyProps())}
     <div className="columnToggles">
     <label>
         <input type="checkbox" {...getToggleHideAllColumnsProps()}/> All
@@ -71,12 +79,13 @@ export default function Table({ columns, data}) {
         ))}
         <br />
       </div>
-    <table {...getTableProps()}>
+    <table {...getTableProps()} >
       <thead>
         {headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map(column => (
-              <th className={column.isSorted ? (column.isSortedDesc ? 'up' : 'down') : ''} {...column.getHeaderProps(column.getSortByToggleProps())}>{column.render('Header')}
+              <th className={column.isSorted ? (column.isSortedDesc ? 'desc' : 'asc') : ''} 
+              {...column.getHeaderProps(column.getSortByToggleProps())}>{column.render('Header')}
               <div className="searchBox" >{column.canFilter ? column.render('Filter') : null}</div>
               </th>
             ))}
@@ -99,3 +108,4 @@ export default function Table({ columns, data}) {
     </>
   )
 }
+

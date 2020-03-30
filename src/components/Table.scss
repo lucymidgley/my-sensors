@@ -1,10 +1,10 @@
 @import "../styles/variables.scss";
 
-.up {
-  border-top: 2px solid $blue1;
+.desc {
+  border-bottom: 3px solid $blue1;
 }
-.down {
-  border-bottom: 2px solid $blue1;
+.asc {
+  border-top: 3px solid $blue1;
 }
 
 .searchBox {
@@ -12,6 +12,11 @@
   padding: 0.5em;
   color: $blue1;
   font-size: 0.8em;
+  border: 0;
+}
+
+::placeholder {
+  color: $blue3
 }
 .columnToggles {
   display: flex;
@@ -28,8 +33,11 @@ table {
   border-spacing: 0;
   border-radius: 1em;
   background-color: $blue2;
-  margin: 1em;
+  margin: 0.5em;
   color: $blue5;
+.frozen {
+  background-color: red;
+}
   tr {
     :last-child {
       td {
@@ -40,7 +48,7 @@ table {
   th,
   td {
     margin: 0;
-    padding: 1rem;
+    padding: 0.5rem;
     border-bottom: 1px solid $blue4;
     border-right: 1px solid $blue4;
     :last-child {

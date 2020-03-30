@@ -1,9 +1,8 @@
 import React from 'react'
+const moment = require('moment')
 
 
 export default function Column(props){
-
-
 const columns_all = React.useMemo(
   () => [
     {
@@ -16,10 +15,12 @@ const columns_all = React.useMemo(
         {
           Header: 'Time',
           accessor: 'time',
+          Cell: ({cell: {value}}) => moment(value, "YYYY-MM-DD'T'hh:mm'Z'").format("YYYY MMM DD HH:mm")
         },
         {
           Header: 'Value',
           accessor: 'value',
+
         },
       ],
     },
@@ -38,12 +39,12 @@ const columns_temp = React.useMemo(
         {
           Header: 'Time',
           accessor: 'time',
-          sortType: 'datetime'
+          Cell: ({cell: {value}}) => moment(value, "YYYY-MM-DD'T'hh:mm'Z'").format("YYYY MMM DD HH:mm")
         },
         {
           Header: `Temperature  ( \u00b0${props.tempType} )`,
           accessor: 'value',
-          sortType: 'basic'
+
         },
       ],
     },
@@ -62,10 +63,12 @@ const columns_humidity = React.useMemo(
         {
           Header: 'Time',
           accessor: 'time',
+          Cell: ({cell: {value}}) => moment(value, "YYYY-MM-DD'T'hh:mm'Z'").format("YYYY MMM DD HH:mm")
         },
         {
           Header: 'Humidity (%)',
           accessor: 'value',
+
         },
       ],
     },
@@ -86,8 +89,9 @@ const columns_info = React.useMemo(
           accessor: "type"
         },
         {
-          Header: 'Created at:',
+          Header: 'Created at',
           accessor: 'createdAt',
+          Cell: ({cell: {value}}) => moment(value, "YYYY-MM-DD'T'hh:mm'Z'").format("YYYY MMM DD HH:mm")
         },
       ],
     },

@@ -3,38 +3,38 @@
 .nav-views {
   list-style: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   background-color: $blue1;
   margin: 0;
-  height: 4em;
+  height: 3em;
   font-family: 'Roboto Condensed', sans-serif;
 
   &__item {
-    &-selected {
-      text-align: center;
-      padding: 1em;
-      color: $blue2;
-      background-color: darken($white, 5%);
-      color: $blue3;
-      border-radius: 0.8em;
-      height: 1.5em;
-    }
+
     height: 1.5em;
     text-align: center;
-    padding: 1em;
+    padding: 0.5em;
     color: $blue2;
     border-radius: 0.8em;
 
-     
     &:hover {
       background-color: $blue2;
       cursor: pointer;
       color: $blue3;
-      height: 1.5em;
     }
 
-   
-  }
+    &-selected {
+      padding: 0.5em;
+      background-color: darken($white, 5%);
+      color: $blue3;
+      border-radius: 0.8em;
+      height: 1.5em;
 
+      &:hover {
+        background-color: darken($white, 5%);
+      }
+    }
+
+  }
 }

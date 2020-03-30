@@ -14,23 +14,18 @@ const sensors = require("./data/sensors.json")
 function App() {
   const [view, setView] = useState(1)
   const [tempType, setTempType] = useState("C")
-  const {columns_all, columns_temp, columns_humidity, columns_info} = Columns({tempType})
+  const {columns_all, columns_temp, columns_humidity, columns_info} = Columns({tempType, readings})
 
   return (
     <Fragment>
       <Nav selected={view} setView={setView} />
       <main className="layout">
-        {view === 1 && <TempToggle tempType={tempType} setTempType={setTempType} />}
+        {view === 1 && <TempToggle tempType={tempType} setTempType={setTempType}/>}
         {view === 2 && <TempToggle tempType={tempType} setTempType={setTempType}/>}
-        {view === 1 && <Table columns={columns_all}  defaultSorted={[
-            {
-              id: "value",
-              desc: true
-            }
-          ]} data={getData(sensors, readings, "All", tempType)} />}  
-        {view === 2 && <Table columns={columns_temp} data={getData(sensors, readings, "Temperature Sensor", tempType)} />}  
-        {view === 3 && <Table columns={columns_humidity} data={getData(sensors, readings, "Humidity Sensor", tempType)} />}  
-        {view === 4 && <Table columns={columns_info} data={getSensors(sensors)} />}  
+        {view === 1 && <Table columns={columns_all} data={getData(sensors, readings, "All", tempType)}/>}  
+        {view === 2 && <Table columns={columns_temp} data={getData(sensors, readings, "Temperature Sensor", tempType)}/>}  
+        {view === 3 && <Table columns={columns_humidity} data={getData(sensors, readings, "Humidity Sensor", tempType)}/>}  
+        {view === 4 && <Table columns={columns_info} data={sensors}/>}  
     </main>
     </Fragment>
   )
