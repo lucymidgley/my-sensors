@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react'
 import "./App.scss"
 import getData, { getSensors } from "./helpers/data-helpers"
 import Nav from "./components/Nav"
-import Table from "./components/Table"
+import Table, {DefaultColumnFilter, IndeterminateCheckbox} from "./components/Table"
 import Columns from "./columns"
 import TempToggle from "./components/TempToggle"
 const readings = require("./data/readings.json")
@@ -19,8 +19,8 @@ function App() {
   return (
     <Fragment>
       <Nav selected={view} setView={setView} />
-      <TempToggle tempType={tempType} setTempType={setTempType} />
       <main className="layout">
+      <TempToggle tempType={tempType} setTempType={setTempType} />
         {view === 1 && <Table columns={columns_all} data={getData(sensors, readings, "All", tempType)} />}  
         {view === 2 && <Table columns={columns_temp} data={getData(sensors, readings, "Temperature Sensor", tempType)} />}  
         {view === 3 && <Table columns={columns_humidity} data={getData(sensors, readings, "Humidity Sensor", tempType)} />}  

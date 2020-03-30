@@ -3,6 +3,22 @@
 import React from "react";
 import { useTable } from "react-table";
 
+
+export function DefaultColumnFilter({
+  column: { filterValue, preFilteredRows, setFilter },
+}) {
+  const count = preFilteredRows.length
+
+  return (
+    <input
+      value={filterValue || ''}
+      onChange={e => {
+        setFilter(e.target.value || undefined) // Set undefined to remove the filter entirely
+      }}
+      placeholder={`Search ${count} records...`}
+    />
+  )
+}
 export default function Table({ columns, data }) {
   // Use the useTable Hook to send the columns and data to build the table
   const {
@@ -27,6 +43,7 @@ export default function Table({ columns, data }) {
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map(column => (
               <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+              
             ))}
           </tr>
         ))}
