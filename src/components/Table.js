@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTable, useFilters, useSortBy  } from 'react-table'
+import "./Table.scss"
 
 
 export function DefaultColumnFilter({

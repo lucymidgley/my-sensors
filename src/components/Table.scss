@@ -1,0 +1,50 @@
+@import "../styles/variables.scss";
+
+.up {
+  border-top: 2px solid $blue1;
+}
+.down {
+  border-bottom: 2px solid $blue1;
+}
+
+.searchBox {
+  border-radius: 0.5em;
+  padding: 0.5em;
+  color: $blue1;
+  font-size: 0.8em;
+}
+.columnToggles {
+  display: flex;
+  background-color: $blue1;
+  border-radius: 0.5em;
+  color: $blue5;
+  margin-top: 1em;
+  padding: 0.5em;
+}
+table {
+  width: 90%;
+  height: 80%;
+  text-align: center;
+  border-spacing: 0;
+  border-radius: 1em;
+  background-color: $blue2;
+  margin: 1em;
+  color: $blue5;
+  tr {
+    :last-child {
+      td {
+        border-bottom: 0;
+      }
+    }
+  }
+  th,
+  td {
+    margin: 0;
+    padding: 1rem;
+    border-bottom: 1px solid $blue4;
+    border-right: 1px solid $blue4;
+    :last-child {
+      border-right: none;
+    }
+  }
+}
