@@ -19,7 +19,14 @@ export function DefaultColumnFilter({
 }
 
 
-export default function Table({ columns, data }) {
+export default function Table({ columns, data}) {
+  
+    const defaultSorted = {
+      id: "name",
+      desc: true
+    }
+
+
     const defaultColumn = React.useMemo(
       () => ({
         // Let's set up our default Filter UI
@@ -38,14 +45,18 @@ export default function Table({ columns, data }) {
     } = useTable({
       columns,
       data,
-      defaultColumn, 
+      initialState: {
+        sortBy: [{ id: 'name', desc: true }]
+      },
+      defaultColumn,
+      defaultSorted 
     },
     useFilters,
       useSortBy
       )
   return (
     <>
-    <div>
+    <div className="columnToggles">
     <label>
         <input type="checkbox" {...getToggleHideAllColumnsProps()}/> All
       </label>
@@ -64,9 +75,8 @@ export default function Table({ columns, data }) {
         {headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map(column => (
-              <th  {...column.getHeaderProps(column.getSortByToggleProps())}>{column.render('Header')}
+              <th className={column.isSorted ? (column.isSortedDesc ? 'up' : 'down') : ''} {...column.getHeaderProps(column.getSortByToggleProps())}>{column.render('Header')}
               <div className="searchBox" >{column.canFilter ? column.render('Filter') : null}</div>
-               <span>{column.isSorted ? (column.isSortedDesc ? ' 🔽' : ' 🔼') : ''}</span>
               </th>
             ))}
           </tr>

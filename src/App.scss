@@ -20,13 +20,27 @@
   
 }
 
+.up {
+  border-top: 2px solid $blue1;
+}
+.down {
+  border-bottom: 2px solid $blue1;
+}
+
 .searchBox {
   border-radius: 0.5em;
   padding: 0.5em;
   color: $blue1;
   font-size: 0.8em;
 }
-
+.columnToggles {
+  display: flex;
+  background-color: $blue1;
+  border-radius: 0.5em;
+  color: $blue5;
+  margin-top: 1em;
+  padding: 0.5em;
+}
 table {
   width: 90%;
   height: 80%;

@@ -38,10 +38,12 @@ const columns_temp = React.useMemo(
         {
           Header: 'Time',
           accessor: 'time',
+          sortType: 'datetime'
         },
         {
           Header: `Temperature  ( \u00b0${props.tempType} )`,
           accessor: 'value',
+          sortType: 'basic'
         },
       ],
     },
@@ -62,7 +64,7 @@ const columns_humidity = React.useMemo(
           accessor: 'time',
         },
         {
-          Header: '% Humidity',
+          Header: 'Humidity (%)',
           accessor: 'value',
         },
       ],
