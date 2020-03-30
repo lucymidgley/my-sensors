@@ -48,7 +48,7 @@ const columns_temp = React.useMemo(
       ],
     },
   ],
-  []
+  [props.tempType]
 )
 const columns_humidity = React.useMemo(
   () => [
