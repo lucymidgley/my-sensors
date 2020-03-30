@@ -1,45 +1,30 @@
 import React, { useState, Fragment } from 'react'
 import "./App.scss"
-import { data } from "./helpers/data-helpers"
+import getData, { getSensors } from "./helpers/data-helpers"
 import Nav from "./components/Nav"
-import AllSensors from "./components/AllSensors"
+import Table from "./components/Table"
+import Columns from "./columns"
+import TempToggle from "./components/TempToggle"
+const readings = require("./data/readings.json")
+const sensors = require("./data/sensors.json")
+
 
 
 
 function App() {
   const [view, setView] = useState(1)
-  const columns = React.useMemo(
-    () => [
-      {
-        Header: 'Sensors',
-        columns: [
-          {
-            Header: 'Name',
-            accessor: "name"
-          },
-          {
-            Header: 'Time',
-            accessor: 'time',
-          },
-          {
-            Header: 'Value',
-            accessor: 'value',
-          },
-        ],
-      },
-    ],
-    []
-  )
-
+  const [tempType, setTempType] = useState("C")
+  const {columns_all, columns_temp, columns_humidity, columns_info} = Columns({tempType})
 
   return (
     <Fragment>
       <Nav selected={view} setView={setView} />
+      <TempToggle tempType={tempType} setTempType={setTempType} />
       <main className="layout">
-        {view === 1 && <AllSensors columns={columns} data={data} />}  
-        {view === 2 && <AllSensors columns={columns} data={data} />}  
-        {view === 3 && <AllSensors columns={columns} data={data} />}  
-        {view === 4 && <AllSensors columns={columns} data={data} />}  
+        {view === 1 && <Table columns={columns_all} data={getData(sensors, readings, "All", tempType)} />}  
+        {view === 2 && <Table columns={columns_temp} data={getData(sensors, readings, "Temperature Sensor", tempType)} />}  
+        {view === 3 && <Table columns={columns_humidity} data={getData(sensors, readings, "Humidity Sensor", tempType)} />}  
+        {view === 4 && <Table columns={columns_info} data={getSensors(sensors)} />}  
     </main>
     </Fragment>
   )

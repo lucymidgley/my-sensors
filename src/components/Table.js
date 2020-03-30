@@ -1,22 +1,8 @@
 import React, { useState } from 'react'
 import { useTable, useFilters, useSortBy  } from 'react-table'
 
-export default function AllSensors({ columns, data }) {
+export default function Table({ columns, data }) {
   const [filterInput, setFilterInput] = useState("");
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-    setFilter
-  } = useTable({
-    columns,
-    data,
-  },
-  useFilters,
-    useSortBy
-    )
 
     const handleFilterChange = e => {
       const value = e.target.value || undefined;
@@ -24,6 +10,23 @@ export default function AllSensors({ columns, data }) {
       setFilterInput(value);
     };
    
+
+    
+
+    const {
+      getTableProps,
+      getTableBodyProps,
+      headerGroups,
+      rows,
+      prepareRow,
+      setFilter
+    } = useTable({
+      columns,
+      data,
+    },
+    useFilters,
+      useSortBy
+      )
   return (
     <>
       <input className="searchBox"
@@ -36,13 +39,9 @@ export default function AllSensors({ columns, data }) {
         {headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map(column => (
-              <th  {...column.getHeaderProps(column.getSortByToggleProps())} className={
-                column.isSorted
-                  ? column.isSortedDesc
-                    ? "sort-desc"
-                    : "sort-asc"
-                  : ""
-              }>{column.render('Header')}</th>
+              <th  {...column.getHeaderProps(column.getSortByToggleProps())}>{column.render('Header')}
+               <span>{column.isSorted ? (column.isSortedDesc ? ' 🔽' : ' 🔼') : ''}</span>
+              </th>
             ))}
           </tr>
         ))}

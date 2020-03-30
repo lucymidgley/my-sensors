@@ -11,7 +11,7 @@ export default function Nav(props){
   
   const viewsList = views.map((view) => {
     return(
-    <li className={props.selected === view.id ? "nav-views__item-selected": "nav-views__item"} onClick={() => props.setView(view.id)}>{view.name}</li>
+    <li key={view.id} className={props.selected === view.id ? "nav-views__item-selected": "nav-views__item"} onClick={() => props.setView(view.id)}>{view.name}</li>
     )
   })
 

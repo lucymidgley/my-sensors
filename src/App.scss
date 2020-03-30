@@ -6,11 +6,12 @@
 }
 .App {
   text-align: center;
-  font-family: 'Roboto Condensed', sans-serif;;
+  font-family: 'Roboto Condensed', sans-serif;
+  min-height: 200vh;
 }
 .layout {
   background-color: $blue4;
-  min-height: 100%;
+  min-height: 200vh;
   padding: 1em;
   font-family: 'Roboto Condensed', sans-serif;
   
