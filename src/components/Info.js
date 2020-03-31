@@ -7,7 +7,7 @@ export default function Info(props){
     <Fragment>
       <button className="Info-button"onClick={() => setVisible(!visible) }>Info</button>
       {visible && <div className="Info">
-        Information:
+        <strong>Information:</strong>
         <ul>
           <li>Clicking on a column heading lets you sort the column in ascending order, click again for descending order </li>
           <li>Holding shift while clicking on several column headings at once allows you sort the data by multiple columns</li>
