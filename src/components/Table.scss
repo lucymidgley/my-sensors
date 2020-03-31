@@ -3,6 +3,7 @@
 .desc {
   border-bottom: 3px solid $blue1;
 }
+
 .asc {
   border-top: 3px solid $blue1;
 }
@@ -18,6 +19,7 @@
 ::placeholder {
   color: $blue1
 }
+
 .columnToggles {
   display: flex;
   background-color: $blue1;
@@ -26,6 +28,7 @@
   margin-top: 1em;
   padding: 0.5em;
 }
+
 table {
   width: 90%;
   height: 80%;
@@ -35,9 +38,11 @@ table {
   background-color: $blue2;
   margin: 0.5em;
   color: $blue5;
-.frozen {
-  background-color: red;
-}
+
+  .frozen {
+    background-color: red;
+  }
+
   tr {
     :last-child {
       td {
@@ -45,12 +50,14 @@ table {
       }
     }
   }
+
   th,
   td {
     margin: 0;
     padding: 0.5rem;
     border-bottom: 1px solid $blue4;
     border-right: 1px solid $blue4;
+
     :last-child {
       border-right: none;
     }
