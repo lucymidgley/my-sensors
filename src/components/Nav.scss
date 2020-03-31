@@ -26,13 +26,13 @@
 
     &-selected {
       padding: 0.5em;
-      background-color: darken($white, 5%);
-      color: $blue3;
+      background-color: $blue5;
+      color: $blue2;
       border-radius: 0.8em;
       height: 1.5em;
 
       &:hover {
-        background-color: darken($white, 5%);
+        cursor: pointer;
       }
     }
 
