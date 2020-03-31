@@ -1,6 +1,12 @@
 import React from "react";
 const moment = require("moment");
 
+/*
+Columns Objects fro react-table
+  For time columns accept raw data in order to sort correctly 
+  and then use moment to format cell to local human readable correctly
+ */
+
 export default function Column(props) {
   const columns_all = React.useMemo(
     () => [
