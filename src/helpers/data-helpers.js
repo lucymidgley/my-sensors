@@ -1,6 +1,4 @@
-const moment = require('moment');
-
-export default function getData(sensors, readings, sensorType = "", tempType = "") {
+export default function getData(sensors, readings, sensorType, tempType) {
   let outputData = [];
   let dataFiltered
   for (const item of readings) {
@@ -35,12 +33,3 @@ export default function getData(sensors, readings, sensorType = "", tempType = "
   }
   return dataFiltered
 }
-// export const getSensors = function (sensors) {
-//   let outputData = [];
-//   for (const item of sensors) {
-//     let sensorsObj = {};
-//     sensorsObj = {...item}
-//     outputData.push(sensorsObj)
-//   }
-//   return outputData
-// }

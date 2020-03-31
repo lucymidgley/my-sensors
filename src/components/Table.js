@@ -46,9 +46,6 @@ export default function Table({ columns, data}) {
     } = useTable({
       columns,
       data,
-      initialState: {
-        sortBy: [{ id: 'name', desc: true }]
-      },
       defaultColumn,
     },
     useFilters,
@@ -64,7 +61,6 @@ export default function Table({ columns, data}) {
       */
   return (
     <>
-    {console.log(getTableBodyProps())}
     <div className="columnToggles">
     <label>
         <input type="checkbox" {...getToggleHideAllColumnsProps()}/> All

@@ -1,0 +1,38 @@
+@import "../styles/variables.scss";
+
+.Info-button {
+  position: absolute;
+  left: 0.5em;
+  background-color: $blue3;
+  border: 0;
+  border-radius: 0.25em;
+  color: $blue5;
+  font-size: 1.5em;
+  &:hover {
+    background-color: $blue2;
+    cursor: pointer;
+  }
+
+}
+.Close-button {
+  background-color: $blue3;
+  border-radius: 0.25em;
+  color: $blue5;
+  font-size: 1.5em;
+  border: 0;
+  &:hover {
+    background-color: $blue2;
+    cursor: pointer;
+  }
+
+}
+.Info {
+  position: absolute;
+  background-color: $blue5;
+  border-radius: 0.5em;
+  padding: 1em;
+  color: $blue0;
+
+}
+
+

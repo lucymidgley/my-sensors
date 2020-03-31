@@ -1,5 +1,4 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
 import { storiesOf } from "@storybook/react";
 import Table from "../components/Table"
 import "../components/Table.scss"
@@ -10,7 +9,7 @@ const moment = require('moment')
 const columns = [
     {
       Header: 'Words Column',
-      accessor: 'col1', // accessor is the "key" in the data
+      accessor: 'col1', 
     },
     {
       Header: 'Dates Column',
