@@ -10,7 +10,6 @@ App created to display sensor data from a small set of JSON sensor readings and 
 !["Temperature Sensors"](https://github.com/lucymidgley/my-sensors/blob/master/public/temp.png?raw=true)
 !["Humidity Sensors"](https://github.com/lucymidgley/my-sensors/blob/master/public/humid.png?raw=true)
 
-
 ## Dependencies
 
 - React
