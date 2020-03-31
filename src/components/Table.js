@@ -6,7 +6,7 @@ import "./Table.scss";
 Column filter function:
   displays the number of rows to search within before filtering
   adds input search box to each column
-  uses react table's setFilter to find the corresponding data
+  uses react-table's setFilter to find the corresponding data
 */
 
 function ColumnFilter({ column: { filterValue, preFilteredRows, setFilter } }) {
@@ -24,7 +24,7 @@ function ColumnFilter({ column: { filterValue, preFilteredRows, setFilter } }) {
   );
 }
 
-export default function Table({ columns, data }) {
+export default function Table({ columns, data}) {
   const defaultColumn = React.useMemo(
     () => ({
       Filter: ColumnFilter
@@ -44,7 +44,7 @@ export default function Table({ columns, data }) {
     {
       columns,
       data,
-      defaultColumn
+      defaultColumn, 
     },
     useFilters,
     useSortBy
@@ -55,7 +55,7 @@ export default function Table({ columns, data }) {
          Search filter added to header 
          Conditionally add 'desc' or 'asc' class to column if it is sorted
          Added checkbox to toggle all columns on or off
-         Added checkbox to choose which columns should be shown 
+         Added set of checkboxes to toggle particular columns on or off 
       */
   return (
     <>
@@ -79,13 +79,7 @@ export default function Table({ columns, data }) {
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
                 <th
-                  className={
-                    column.isSorted
-                      ? column.isSortedDesc
-                        ? "desc"
-                        : "asc"
-                      : ""
-                  }
+                  className={ column.isSorted ? ( column.isSortedDesc ? "desc" : "asc"): ""}
                   {...column.getHeaderProps(column.getSortByToggleProps())}
                 >
                   {column.render("Header")}

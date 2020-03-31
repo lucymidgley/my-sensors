@@ -7,6 +7,7 @@ App created to display sensor data from a small set of JSON sensor readings and 
 !["Initial View"](https://github.com/lucymidgley/my-sensors/blob/master/public/initial.png?raw=true)
 !["Information"](https://github.com/lucymidgley/my-sensors/blob/master/public/Info.png?raw=true)
 !["Search"](https://github.com/lucymidgley/my-sensors/blob/master/public/search.png?raw=true)
+!["Farenheit"](https://github.com/lucymidgley/my-sensors/blob/master/public/farenheit.png?raw=true)
 !["Temperature Sensors"](https://github.com/lucymidgley/my-sensors/blob/master/public/temp.png?raw=true)
 !["Humidity Sensors"](https://github.com/lucymidgley/my-sensors/blob/master/public/humid.png?raw=true)
 

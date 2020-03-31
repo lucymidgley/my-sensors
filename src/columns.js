@@ -14,6 +14,7 @@ export default function Column(props) {
           {
             Header: "Time",
             accessor: "time",
+            Filter: "",
             Cell: ({ cell: { value } }) =>
               moment(value, "YYYY-MM-DD'T'hh:mm'Z'").format("YYYY MMM DD HH:mm")
           },
@@ -38,6 +39,7 @@ export default function Column(props) {
           {
             Header: "Time",
             accessor: "time",
+            Filter: "",
             Cell: ({ cell: { value } }) =>
               moment(value, "YYYY-MM-DD'T'hh:mm'Z'").format("YYYY MMM DD HH:mm")
           },
@@ -62,6 +64,7 @@ export default function Column(props) {
           {
             Header: "Time",
             accessor: "time",
+            Filter: "",
             Cell: ({ cell: { value } }) =>
               moment(value, "YYYY-MM-DD'T'hh:mm'Z'").format("YYYY MMM DD HH:mm")
           },
@@ -90,6 +93,7 @@ export default function Column(props) {
           {
             Header: "Created at",
             accessor: "createdAt",
+            Filter: "",
             Cell: ({ cell: { value } }) =>
               moment(value, "YYYY-MM-DD'T'hh:mm'Z'").format("YYYY MMM DD HH:mm")
           }

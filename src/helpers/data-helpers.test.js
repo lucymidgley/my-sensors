@@ -45,7 +45,7 @@ const sensorsTest = [
 ];
 
 describe("getData function", () => {
-  it("Converts Celcius to Farehnheit correctly, to 1 decimal place", () => {
+  it("Converts Celcius to Farehnheit correctly, and to 1 decimal place", () => {
     const dataObj = getData(
       sensorsTest,
       readingsTest,

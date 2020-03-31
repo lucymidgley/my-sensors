@@ -17,7 +17,7 @@ function App() {
     columns_temp,
     columns_humidity,
     columns_info
-  } = Columns({ tempType, readings });
+  } = Columns({ tempType });
 
   return (
     <Fragment>
