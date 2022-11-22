@@ -10,7 +10,7 @@
     "node-sass": "^4.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
+    "react-scripts": "5.0.1",
     "react-table": "^7.0.0"
   },
   "scripts": {
@@ -42,7 +42,7 @@
     "@storybook/addon-links": "^5.3.17",
     "@storybook/addons": "^5.3.17",
     "@storybook/preset-create-react-app": "^2.1.1",
-    "@storybook/react": "^5.3.17",
+    "@storybook/react": "^6.5.13",
     "cypress": "^4.3.0"
   }
 }
